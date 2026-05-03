@@ -32,7 +32,7 @@ from engine.ecl_calculator import ECLCalculator
 
 # Hard-coded demo credentials
 DEMO_USERS = {
-    "admin": "ecl_demo_2026",
+    "admin": "ecldemo2026",
     "viewer": "ecl_view_2026",
 }
 
@@ -62,7 +62,7 @@ if not st.session_state["authenticated"]:
             st.session_state["authenticated"] = True
             st.session_state["username"] = username
             st.success("Login successful ✅")
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.error("Invalid username or password")
 
@@ -79,7 +79,7 @@ with st.sidebar:
     if st.button("Logout"):
         st.session_state["authenticated"] = False
         st.session_state["username"] = None
-        st.experimental_rerun()
+        st.rerun()
 
 
 # =========================================================
