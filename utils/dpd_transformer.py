@@ -46,10 +46,10 @@ def transform_dpd_wide_to_long(file_path) -> pd.DataFrame:
     # ------------------------------------------------------------------
     # 1. Load dataset (CSV or Excel)
     # ------------------------------------------------------------------
-    if file_path.lower().endswith(".csv"):
-        df = pd.read_csv(file_path)
-    elif file_path.lower().endswith((".xlsx", ".xls")):
-        df = pd.read_excel(file_path)
+    if file_name.endswith(".csv"):
+        df = pd.read_csv(file_obj)
+    elif file_name.endswith((".xlsx", ".xls")):
+        df = pd.read_excel(file_obj)
     else:
         raise ValueError("Unsupported file type. Use CSV or Excel.")
 
