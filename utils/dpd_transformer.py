@@ -13,7 +13,7 @@ import re
 from datetime import datetime
 
 
-def transform_dpd_wide_to_long(file_path: str) -> pd.DataFrame:
+def transform_dpd_wide_to_long(file_path) -> pd.DataFrame:
     """
     Transform a wide-format DPD matrix into long-format loan performance data.
 
@@ -36,7 +36,13 @@ def transform_dpd_wide_to_long(file_path: str) -> pd.DataFrame:
             'mob'
         ]
     """
-
+    # Handles Streamlit uploadfile vs string path
+    if hasattr(file_path, "name"):
+        file_name = file_path.name.lower()
+        file_obj = file_path
+    else:
+        file_name=file_path.lower()
+        file_obj = file_path
     # ------------------------------------------------------------------
     # 1. Load dataset (CSV or Excel)
     # ------------------------------------------------------------------
