@@ -187,4 +187,3 @@ class LogisticPD:
             raise RuntimeError("Run predict_pd_12m() first.")
 
         return float(self._pd_12m_per_loan["pd_12m"].mean())
-``
